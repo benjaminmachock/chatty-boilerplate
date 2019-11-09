@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chatkit from "@pusher/chatkit-client";
+import { Container, Jumbotron } from "reactstrap";
 
 class Chat extends Component {
   constructor(props) {
