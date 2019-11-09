@@ -1,6 +1,16 @@
 import React, { Component } from "react";
+import Chatkit from "@pusher/chatkit-client";
 
 class Chat extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: {},
+      currentRoom: {},
+      messages: []
+    };
+    this.sendUserMessage = this.sendUserMessage.bind(this);
+  }
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({
       instanceLocator: "",
