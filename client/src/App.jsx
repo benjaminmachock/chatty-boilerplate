@@ -11,10 +11,24 @@ class App extends Component {
     this.handleUsernameSubmit = this.handleUsernameSubmit.bind(this);
   }
 
-  handleUsernameSubmit() {
-    console.log("submitted");
+  handleUsernameSubmit(username) {
+    fetch("http://localhost:3001/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username })
+    })
+      .then(res => {
+        this.setState({
+          currentUsername: username,
+          viewPage: "Chat"
+        });
+      })
+      .catch(error => console.error("error", error));
   }
 
+  //create 2 ifs that check viewPage state to determine what page will be displayed to user.  the 2 nested components are UserForm and Chat. pass onSubmit property to UserForm with the handleUserNameSubmit function. pass currentUsername property the state value of currentUsername
   render() {
     return (
       <div>

@@ -47,9 +47,15 @@ class Chat extends Component {
       .catch(error => console.error("error", error));
   }
 
-  sendUserMessage() {
-    console.log("message sent");
+  //pass in the text created by the user, sendMessage is a method from Chat Kit
+  sendUserMessage(text) {
+    this.state.currentUser.sendMessage({
+      text,
+      roomId: this.state.currentRoom.id
+    });
   }
+
+  //nest the MessagesList and MessageInput component. pass props messages={} and onSubmit={}
   render() {
     return (
       <div>
