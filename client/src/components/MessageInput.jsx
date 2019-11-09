@@ -10,6 +10,15 @@ class MessageInput extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
+
+  handleOnSubmit() {
+    console.log("submitted");
+  }
+
+  handleOnChange() {
+    console.log("changed");
+  }
+
   render() {
     return (
       <div>
